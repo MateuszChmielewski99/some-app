@@ -1,25 +1,16 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import "./Navbar.css"
 
-export default function NavBar() {
+export const NavBar = () => {
   return (
-    <Container>
-      <Navbar bg="dark" variant={"dark"}>
-        <LinkContainer to="/">
-          <Navbar.Brand>Some-App</Navbar.Brand>
-        </LinkContainer>
+      <Navbar bg="dark" variant={"dark"} className="padding10">
+        <Navbar.Brand>Some-App</Navbar.Brand>
         <Nav>
-          <LinkContainer to="/">
-            <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/page1">
-            <Nav.Link>Page1</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/page2">
-            <Nav.Link>Page2</Nav.Link>
-          </LinkContainer>
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/starwars">StarWars</Nav.Link>
+          <Nav.Link as={Link} to="/page2">Page2</Nav.Link>
         </Nav>
       </Navbar>
-    </Container>
   );
 };
