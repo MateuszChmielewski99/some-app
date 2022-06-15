@@ -12,7 +12,6 @@ export default function SwCharacters() {
   );
 };
 
-
 const TabController = () => {
   const [key, setKey] = useState('luke');
   const [isLoading, setIsLoading] = useState(false);
