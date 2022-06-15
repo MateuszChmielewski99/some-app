@@ -1,0 +1,20 @@
+.loading-spinner {
+  display: inline-block;
+  padding: 90px;
+
+  animation-name: rotate;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.loading-spinner img {
+  height: 370px;
+  width: 430px;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
