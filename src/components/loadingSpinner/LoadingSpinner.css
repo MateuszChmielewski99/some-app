@@ -1,6 +1,6 @@
 .loading-spinner {
   display: inline-block;
-  padding: 90px;
+  padding: 50px;
 
   animation-name: rotate;
   animation-duration: 0.8s;
@@ -9,8 +9,8 @@
 }
 
 .loading-spinner img {
-  height: 370px;
-  width: 430px;
+  height: 74px;
+  width: 86px;
 }
 
 @keyframes rotate {
