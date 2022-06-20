@@ -1,10 +1,10 @@
 import "./CharacterDetails.css"
 
 interface CharacterDetailsProps {
-  name: string, 
-  gender: string, 
-  birth_year: string, 
-  height: string
+  name: string | undefined, 
+  gender: string | undefined, 
+  birth_year: string | undefined, 
+  height: string | undefined
 }
 
 export default function CharacterDetails(props:CharacterDetailsProps) {
