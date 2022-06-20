@@ -2,10 +2,7 @@
   display: inline-block;
   padding: 50px;
 
-  animation-name: rotate;
-  animation-duration: 0.8s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation: rotate 0.8s infinite linear;
 }
 
 .loading-spinner img {
