@@ -34,13 +34,13 @@ const TabController = () => {
             onSelect={(k) => setKey(k as string)}
             className='mb-3'>
             <Tab eventKey="luke" title="Luke">
-              {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name!} gender={character?.gender!} birth_year={character?.birth_year!} height={character?.height!} />}
+              {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name} gender={character?.gender} birth_year={character?.birth_year} height={character?.height} />}
             </Tab>
             <Tab eventKey="leia" title="Leia">
-              {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name!} gender={character?.gender!} birth_year={character?.birth_year!} height={character?.height!} />}
+              {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name} gender={character?.gender} birth_year={character?.birth_year} height={character?.height} />}
             </Tab>
             <Tab eventKey="han" title="Han">
-              {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name!} gender={character?.gender!} birth_year={character?.birth_year!} height={character?.height!} />}
+              {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name} gender={character?.gender} birth_year={character?.birth_year} height={character?.height} />}
             </Tab>
             <Tab title="Custom">
             </Tab>
