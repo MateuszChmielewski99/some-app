@@ -6,7 +6,7 @@ export default function LoadingSpinner() {
   return (
     <div className="loading-spinner">
       <img src={spinner} />
-      <audio src={spinnerAudio} autoPlay={true} />
+      <audio src={spinnerAudio} autoPlay={true} loop={false}/>
     </div>
   );
 };

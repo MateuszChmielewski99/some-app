@@ -1,21 +1,37 @@
 import { Tab, Tabs } from "react-bootstrap";
 import { Fragment, useEffect, useState } from "react";
-import Character from "../../models/Character";
-import SWServiceClass from "../../services/SWService";
-import characters from "../../data/CharacterDictionary";
-import CharacterDetails from "../../components/characterDetails/CharacterDetails";
-import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
+import Character from "../models/Character"
+import { getById } from "../services/SWService";
+import characters from "../data/CharacterDictionary";
+import CharacterDetails from "../components/characterDetails/CharacterDetails";
+import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
+import { readLocalStorage, writeLocalStorage } from "../../common/services/LocalStorageService";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function SwCharacters() {
-  const [key, setKey] = useState('luke');
+  const navigate = useNavigate();
+  const { tabKey } = useParams<{ tabKey: string }>();
+  const [key, setKey] = useState(tabKey ?? readLocalStorage('lastTab') ?? 'luke');
   const [isLoading, setIsLoading] = useState(false);
   const [character, setCharacter] = useState<Character>();
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const character = await SWServiceClass.fetchCharacter(characters.get(key)!);
+      const sendTime = Date.now();
+      const character = await getById('people', characters.get(key));
+      const receiveTime = Date.now();
+      const responseTime = receiveTime - sendTime;
+
+      const urlSplit: string[] = window.location.href.split('/');
+      if (urlSplit.length == 5)
+        navigate(`/starwars/${key}`);
+
+      writeLocalStorage('lastTab', key);
       setCharacter(character);
-      setIsLoading(false);
+      if (responseTime < 3000)
+        setTimeout(() => setIsLoading(false), 2000 - responseTime);
+      else
+        setIsLoading(false);
     }
 
     fetchData();
