@@ -23,7 +23,7 @@ export default function SwCharacters() {
       const responseTime = receiveTime - sendTime;
 
       const urlSplit: string[] = window.location.href.split('/');
-      if (urlSplit.length == 5)
+      if (urlSplit.length === 5)
         navigate(`/starwars/${key}`);
 
       writeLocalStorage('lastTab', key);
