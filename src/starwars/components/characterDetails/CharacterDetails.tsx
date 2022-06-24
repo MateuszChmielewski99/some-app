@@ -2,15 +2,13 @@ import "./CharacterDetails.css";
 import { handleShare } from "../../../common/services/SharingService";
 
 interface ICharacterDetailsProps {
-  name?: string,
-  gender?: string,
-  birth_year?: string,
-  height?: string
+  name: string,
+  gender: string,
+  birth_year: string,
+  height: string
 }
 
 const currentUrl: string = window.location.href;
-
-
 
 export default function CharacterDetails(props: ICharacterDetailsProps) {
   

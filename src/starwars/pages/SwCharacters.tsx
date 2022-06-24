@@ -44,13 +44,13 @@ export default function SwCharacters() {
         onSelect={(k) => setKey(k as string)}
         className='mb-3'>
         <Tab eventKey="luke" title="Luke">
-          {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name} gender={character?.gender} birth_year={character?.birth_year} height={character?.height} />}
+          {isLoading ? <LoadingSpinner /> : character ? <CharacterDetails name={character.name} gender={character.gender} birth_year={character.birth_year} height={character.height} /> : <>No Data</>}
         </Tab>
         <Tab eventKey="leia" title="Leia">
-          {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name} gender={character?.gender} birth_year={character?.birth_year} height={character?.height} />}
+          {isLoading ? <LoadingSpinner /> : character ? <CharacterDetails name={character.name} gender={character.gender} birth_year={character.birth_year} height={character.height} /> : <>No Data</>}
         </Tab>
         <Tab eventKey="han" title="Han">
-          {isLoading ? <LoadingSpinner /> : <CharacterDetails name={character?.name} gender={character?.gender} birth_year={character?.birth_year} height={character?.height} />}
+          {isLoading ? <LoadingSpinner /> : character ? <CharacterDetails name={character.name} gender={character.gender} birth_year={character.birth_year} height={character.height} /> : <>No Data</>}
         </Tab>
         <Tab title="Custom">
         </Tab>
