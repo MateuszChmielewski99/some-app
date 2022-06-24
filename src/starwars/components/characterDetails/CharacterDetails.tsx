@@ -1,7 +1,7 @@
 import "./CharacterDetails.css";
 import { handleShare } from "../../../common/services/SharingService";
 
-interface CharacterDetailsProps {
+interface ICharacterDetailsProps {
   name?: string,
   gender?: string,
   birth_year?: string,
@@ -10,18 +10,19 @@ interface CharacterDetailsProps {
 
 const currentUrl: string = window.location.href;
 
-const handleShareClick = (props: CharacterDetailsProps) => {
-  handleShare(
-    `Star Wars ${props.name ?? "name"}`,
-    `Name: ${props.name ?? "name"}
-    Gender: ${props.gender ?? "gender"}
-    Birth Year: ${props.birth_year ?? "birth_year"}
-    Height: ${props.height ?? "height"}`,
-    currentUrl);
-}
 
-export default function CharacterDetails(props: CharacterDetailsProps) {
 
+export default function CharacterDetails(props: ICharacterDetailsProps) {
+  
+  const handleShareClick = (props: ICharacterDetailsProps) => {
+    handleShare(
+      `Star Wars ${props.name ?? "name"}`,
+      `Name: ${props.name ?? "name"}
+      Gender: ${props.gender ?? "gender"}
+      Birth Year: ${props.birth_year ?? "birth_year"}
+      Height: ${props.height ?? "height"}`,
+      currentUrl);
+  }
   return (
     <div className="padding20">
       <p>Full name: {props.name ?? "name"}</p>
