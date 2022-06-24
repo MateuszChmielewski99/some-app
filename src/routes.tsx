@@ -1,6 +1,6 @@
 import Home from './common/components/pages/Home';
 import SwCharacters from './starwars/pages/SwCharacters';
-import Page2 from './page2/pages/Page2'
+import Page2 from './page2/Page2'
 import { Route, Routes } from "react-router-dom";
 import React, { useCallback } from 'react';
 import './Content.css'
