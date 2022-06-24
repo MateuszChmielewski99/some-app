@@ -1,7 +1,7 @@
-export function readLocalStorage<T>(key: string): T {
+export function readLocalStorage<T>(key: string): T | null {
   const value = localStorage.getItem(key);
   if (value === null || value ==='')
-    return null as any;
+    return null;
   else
     return JSON.parse(value);
 }
