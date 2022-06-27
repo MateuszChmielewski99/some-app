@@ -29,7 +29,7 @@ export default function SwCharacters() {
       writeLocalStorage('lastTab', key);
       setCharacter(character);
       if (responseTime < 3000)
-        setTimeout(() => setIsLoading(false), 2000 - responseTime);
+        setTimeout(() => setIsLoading(false), 3000 - responseTime);
       else
         setIsLoading(false);
     }
