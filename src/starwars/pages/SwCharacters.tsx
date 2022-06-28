@@ -7,32 +7,25 @@ import CharacterDetails from "../components/characterDetails/CharacterDetails";
 import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
 import { readLocalStorage, writeLocalStorage } from "../../common/services/LocalStorageService";
 import { useParams, useNavigate } from "react-router-dom";
+import useDelayedCall from "../../common/hooks/useDelayedCall";
 
 export default function SwCharacters() {
   const navigate = useNavigate();
   const { tabKey } = useParams<{ tabKey: string }>();
   const [key, setKey] = useState(tabKey ?? readLocalStorage('lastTab') ?? 'luke');
-  const [isLoading, setIsLoading] = useState(false);
-  const [character, setCharacter] = useState<Character>();
+
+  const [call, character, isLoading, error] = useDelayedCall<Character>(async () => await getById('people', characters.get(key)));
+
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
-      const sendTime = Date.now();
-      const character = await getById('people', characters.get(key));
-      const receiveTime = Date.now();
-      const responseTime = receiveTime - sendTime;
+      call();
 
       const urlSplit: string[] = window.location.href.split('/');
       if (urlSplit.length === 5)
         navigate(`/starwars/${key}`);
 
       writeLocalStorage('lastTab', key);
-      setCharacter(character);
-      if (responseTime < 3000)
-        setTimeout(() => setIsLoading(false), 3000 - responseTime);
-      else
-        setIsLoading(false);
-    }
+    };
 
     fetchData();
   }, [key]);
