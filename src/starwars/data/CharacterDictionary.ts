@@ -1,8 +1,4 @@
-interface ICharacters {
-    [index: string]: number
-}
-
-const characters: ICharacters = {
+const characters: Record<string, number> = {
     "luke": 1,
     "leia": 5,
     "han": 14
