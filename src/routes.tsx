@@ -1,9 +1,10 @@
-import Home from './pages/Home';
-import SwCharacters from './pages/SwCharacters/SwCharacters';
-import Page2 from './pages/Page2'
+import Home from './common/components/pages/Home';
+import SwCharacters from './starwars/pages/SwCharacters';
+import Page2 from './page2/Page2'
 import { Route, Routes } from "react-router-dom";
 import React, { useCallback } from 'react';
 import './Content.css'
+
 
 interface IRouteEntry {
   component: JSX.Element,
@@ -17,9 +18,14 @@ const routes: IRouteEntry[] = [{
   key: 'home'
 },
 {
-component: <SwCharacters />,
-path: '/starwars',
-key: 'starwars'
+  path: '/starwars/:tabKey',
+  component: <SwCharacters />,
+  key: 'starwars'
+},
+{
+  path: '/starwars/',
+  component: <SwCharacters />,
+  key: 'starwars'
 },
 {
   component: <Page2 />,
@@ -28,17 +34,17 @@ key: 'starwars'
 }];
 
 export const Routing = () => {
-  const createRoute = useCallback(({ component, key, ...rest}: IRouteEntry) => {
-  return <React.Fragment key={key}>
-    <Route {...rest} element={component} />
-  </React.Fragment>
+  const createRoute = useCallback(({ component, key, ...rest }: IRouteEntry) => {
+    return <React.Fragment key={key}>
+      <Route {...rest} element={component} />
+    </React.Fragment>
   }, []);
 
   return (
     <div className="padding10">
-  <Routes>
-    {routes.map(createRoute)}
-  </Routes>
-  </div>
+      <Routes>
+        {routes.map(createRoute)}
+      </Routes>
+    </div>
   );
 };

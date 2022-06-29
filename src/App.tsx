@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { NavBar } from './components/navbar/Navbar';
+import { NavBar } from './common/components/navbar/Navbar';
 import { Routing } from './routes';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         </div>
       </div>
     </Router>
-  )
+  );
 };
 
 export default App;
